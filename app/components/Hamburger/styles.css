@@ -1,0 +1,14 @@
+.hamburger {
+  position: absolute;
+  right: 15px;
+  margin: 18px 0 !important;
+  height: 44px !important;
+  width: 44px !important;
+  fill: #424242 !important;
+  transition: fill 0.25s linear !important;
+  cursor: pointer;
+}
+
+.hamburger:hover {
+  fill: #616161 !important;
+}

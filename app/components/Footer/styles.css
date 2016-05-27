@@ -1,0 +1,6 @@
+/* Sticky Footer Full height flexbox solution. */
+.footer {
+  background-color: #BDBDBD;
+  /*height: 100px;*/
+  flex: none;
+}

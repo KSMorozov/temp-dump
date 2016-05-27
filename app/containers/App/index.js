@@ -12,19 +12,58 @@
  */
 
 import React from 'react';
+import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
+import { createSelector } from 'reselect';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+import { selectShowDrawer } from './selectors';
+import { toggleDrawer } from './actions';
+
+import NavigationBar from 'containers/NavigationBar';
+import NavigationMobile from 'components/NavigationMobile';
+import Content from 'components/Content';
+import Footer from 'components/Footer';
+
+import styles from './styles.css';
 
 /* eslint-disable react/prefer-stateless-function */
-export default class App extends React.Component {
+class App extends React.Component {
 
   static propTypes = {
     children: React.PropTypes.node,
+    showDrawer: React.PropTypes.bool.isRequired,
+    changeRoute: React.PropTypes.func.isRequired,
+    onToggleDrawer: React.PropTypes.func.isRequired,
   };
 
   render() {
+    const { showDrawer, onToggleDrawer, changeRoute } = this.props;
     return (
-      <div>
-        {this.props.children}
-      </div>
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
+        <div className={styles.app}>
+          <NavigationBar height="5em" onToggleDrawer={onToggleDrawer} onRouteChange={changeRoute} />
+          <Content>
+            {this.props.children}
+          </Content>
+          <NavigationMobile showDrawer={showDrawer} onToggleDrawer={onToggleDrawer} onRouteChange={changeRoute} />
+          <Footer />
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onToggleDrawer: () => dispatch(toggleDrawer()),
+    changeRoute: (url) => dispatch(push(url)),
+    dispatch,
+  };
+}
+
+export default connect(createSelector(
+  selectShowDrawer(),
+  (showDrawer) => ({ showDrawer })
+), mapDispatchToProps)(App);

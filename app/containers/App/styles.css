@@ -1,0 +1,66 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+:global html,
+:global button,
+:global input,
+:global select,
+:global textarea,
+:global body.fontLoaded,
+:global .pure-g [class *= "pure-u"] {
+    /* Set your content font stack here: */
+    font-size: 100%;
+    font-family: 'Roboto';
+    font-weight: 300;
+    color: #424242;
+}
+
+:global body {
+  font-family: sans-serif;
+}
+
+/* Sticky Footer Full height flexbox solution. */
+:global html,
+:global body,
+:global #app {
+  height: 100%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* 1, 3 */
+}
+
+.app {
+  background-color: #FAFAFA;
+}
+
+.app :global h1{
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.app :global h2 {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.app :global h3,
+.app :global h4,
+.app :global h5{
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.app :global p {
+  font-size: .87em;
+}
+
+.app :global .subheader {
+  color: #757575;
+}
+
+.app :global .card {
+  border-bottom: 1px solid #E0E0E0;
+  box-shadow: #E0E0E0 0px 1px 6px, #E0E0E0 0px 1px 4px;
+}

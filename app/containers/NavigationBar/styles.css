@@ -1,0 +1,5 @@
+/* Sticky Footer Full height flexbox solution. */
+.navigationBar {
+  z-index: 1000;
+  flex: none;
+}

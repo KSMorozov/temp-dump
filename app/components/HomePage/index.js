@@ -16,7 +16,7 @@ export default class HomePage extends React.Component {
 
   render() {
     return (
-      <h1>This is the Homepage!</h1>
+      <h1 style={{ textAlign: 'left' }}>News Page!</h1>
     );
   }
 }

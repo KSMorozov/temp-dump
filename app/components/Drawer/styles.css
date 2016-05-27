@@ -1,0 +1,21 @@
+.item {
+  height: 80px;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.25s linear, color 0.25s linear;
+  cursor: pointer;
+}
+
+.item:hover {
+  /*border-bottom: 1px solid #F5F5F5;*/
+  border-bottom: 1px solid #616161;
+}
+
+.item:hover > a {
+  color: #616161;
+}
+
+.link {
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+}
