@@ -13,6 +13,11 @@ injectTapEventPlugin();
 import 'file?name=[name].[ext]!./manifest.json';  // eslint-disable-line import/no-unresolved
 import 'file?name=[name].[ext]!./.htaccess';      // eslint-disable-line import/no-unresolved
 
+// Pure CSS Styles.
+import '!!style-loader!css-loader!../node_modules/purecss/build/base-min.css';
+import '!!style-loader!css-loader!../node_modules/purecss/build/grids-min.css';
+import '!!style-loader!css-loader!../node_modules/purecss/build/grids-responsive-min.css';
+
 // Import all the third party stuff
 import React from 'react';
 import ReactDOM from 'react-dom';
