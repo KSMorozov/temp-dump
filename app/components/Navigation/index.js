@@ -6,13 +6,13 @@ const Navigation = ({ small, onRouteChange }) =>
     <div className="pure-u-3-5">&nbsp;</div>
     <ul className={`pure-u-2-5 ${styles.menu}`}>
       <li className={`pure-u-1-3 ${styles.item}`}>
-        <a onTouchTap={onRouteChange.bind(this, '/portfolio')} className={`${styles.link} pure-u-1-1`}>Портфолио</a>
+        <a onTouchTap={onRouteChange.bind(this, '/portfolio', undefined, undefined)} className={`${styles.link} pure-u-1-1`}>Портфолио</a>
       </li>
       <li className={`pure-u-1-3 ${styles.item}`}>
-        <a onTouchTap={onRouteChange.bind(this, '/about')} className={`${styles.link} pure-u-1-1`}>О Нас</a>
+        <a onTouchTap={onRouteChange.bind(this, '/about', undefined, undefined)} className={`${styles.link} pure-u-1-1`}>О Нас</a>
       </li>
       <li className={`pure-u-1-3 ${styles.item}`}>
-        <a onTouchTap={onRouteChange.bind(this, '/contacts')} className={`${styles.link} pure-u-1-1`}>Контакты</a>
+        <a onTouchTap={onRouteChange.bind(this, '/contacts', undefined, undefined)} className={`${styles.link} pure-u-1-1`}>Контакты</a>
       </li>
     </ul>
   </div>;

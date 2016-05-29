@@ -1,27 +1,14 @@
 /* Sticky Footer Full height flexbox solution. */
 .main {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
   flex: 1 0 auto; /* 2 */
-  /*padding: var(--space) var(--space) 0;*/
 }
 
 .main::after {
   content: '\00a0'; /* &nbsp; */
   display: block;
-  /*margin-top: var(--space);*/
   height: 0px;
   visibility: hidden;
 }
-/*@media (--break-lg) {
-  .main {
-    padding-top: var(--space-lg);
-  }
-  .main::after {
-    margin-top: var(--space-lg);
-  }
-}*/
 
 .main {
   padding: 0;

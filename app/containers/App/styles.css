@@ -64,3 +64,7 @@
   border-bottom: 1px solid #E0E0E0;
   box-shadow: #E0E0E0 0px 1px 6px, #E0E0E0 0px 1px 4px;
 }
+
+.app :global .box > div {
+  margin: 1em 1em;
+}

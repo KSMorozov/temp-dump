@@ -1,0 +1,12 @@
+.card > div {
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.25s linear, color 0.25s linear;
+}
+
+.card:hover > div {
+  border-bottom: 1px solid #616161;
+}
+
+.card > div > a {
+  cursor: pointer;
+}

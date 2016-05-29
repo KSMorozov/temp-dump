@@ -4,7 +4,7 @@ import Logo from './logo.svg';
 
 const Brand = ({ small, onRouteChange }) =>
   <div className={`pure-u-${small ? '12-24' : '3-24'} ${styles.brand}`}>
-    <a onTouchTap={onRouteChange.bind(this, '/')}>
+    <a onTouchTap={onRouteChange.bind(this, '/', undefined, undefined)}>
       <img src={Logo} alt="logo" className={styles.logo} />
     </a>
   </div>;

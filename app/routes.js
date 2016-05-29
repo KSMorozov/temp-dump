@@ -42,6 +42,14 @@ export default function createRoutes() {
           .catch(errorLoading);
       },
     }, {
+      path: '/portfolio/:id',
+      name: 'portfolio',
+      getComponent(nextState, cb) {
+        System.import('containers/Product')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
       path: '/about',
       name: 'about',
       getComponent(nextState, cb) {

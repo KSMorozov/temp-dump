@@ -45,7 +45,7 @@ class App extends React.Component {
         <div className={styles.app}>
           <NavigationBar height="5em" onToggleDrawer={onToggleDrawer} onRouteChange={changeRoute} />
           <Content>
-            {this.props.children}
+            {this.props.children && React.cloneElement(this.props.children, { changeRoute })}
           </Content>
           <NavigationMobile showDrawer={showDrawer} onToggleDrawer={onToggleDrawer} onRouteChange={changeRoute} />
           <Footer />
@@ -58,7 +58,7 @@ class App extends React.Component {
 function mapDispatchToProps(dispatch) {
   return {
     onToggleDrawer: () => dispatch(toggleDrawer()),
-    changeRoute: (url) => dispatch(push(url)),
+    changeRoute: (url, query, state) => dispatch(push({ pathname: url, query, state })),
     dispatch,
   };
 }
