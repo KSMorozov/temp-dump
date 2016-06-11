@@ -9,6 +9,7 @@
   "author": "Max Stoiber",
   "license": "MIT",
   "scripts": {
+    "postinstall": "if [ \"$NODE_ENV\" = \"production\" ]; then npm run build; fi",
     "prebuild": "npm run test && npm run build:clean",
     "build:clean": "rimraf ./build/*",
     "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color -p",
