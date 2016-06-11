@@ -2,6 +2,18 @@ import { createSelector } from 'reselect';
 
 const selectGlobal = () => (state) => state.get('global');
 
+const selectRoute = () => state => state.get('route');
+
+const selectQuery = () => createSelector(
+  selectRoute(),
+  (routeState) => routeState.getIn(['locationBeforeTransitions', 'query']).toJS()
+);
+
+const selectQuerySize = () => createSelector(
+  selectRoute(),
+  (routeState) => routeState.getIn(['locationBeforeTransitions', 'query']).size
+);
+
 const selectShowDrawer = () => createSelector(
   selectGlobal(),
   (globalState) => globalState.get('showDrawer')
@@ -28,4 +40,6 @@ export {
   selectLocationState,
   selectShowDrawer,
   selectGlobal,
+  selectQuery,
+  selectQuerySize,
 };

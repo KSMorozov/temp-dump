@@ -21,10 +21,10 @@ class Product extends React.Component {
             <Card>
               <CardTitle title={product.name} subtitle={product.type} />
               <CardText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at tortor sapien. Etiam et risus ut lorem venenatis placerat. Cras congue augue eget ex laoreet cursus. Etiam eu imperdiet neque. Duis malesuada quam eu ex egestas elementum. Integer eget tincidunt risus. Vivamus gravida, mi a maximus feugiat, odio tellus sagittis mauris, tincidunt aliquam nisl nisl semper tortor. Aenean posuere, orci in malesuada consequat, lacus leo porta ex, accumsan laoreet lectus libero vulputate ex. Nunc pellentesque, velit sed eleifend vestibulum, turpis nisi aliquam arcu, in imperdiet felis ante eget quam. In magna elit, laoreet id purus at, semper pulvinar turpis. Phasellus dignissim condimentum erat. Sed lacinia bibendum ullamcorper.
+                {product.body}
               </CardText>
               <CardText>
-                Donec ligula ex, bibendum a orci id, ullamcorper congue orci. Pellentesque mattis est sit amet est dignissim maximus. Phasellus mauris nulla, hendrerit sed dolor vel, feugiat porta urna. Vivamus tincidunt molestie augue quis rutrum. Fusce cursus tortor nec turpis sollicitudin, pharetra facilisis mi ornare. Pellentesque tellus libero, tempor vel convallis eget, convallis a nisl. Vivamus volutpat nibh orci, at tristique odio congue vel. Nam posuere purus eget sem porta, nec ultrices sapien iaculis. Vivamus arcu neque, accumsan et tristique sit amet, eleifend id turpis.
+                Цена: {product.price} Рублей
               </CardText>
               <CardActions>
                 <RaisedButton secondary label="Купить" style={{ borderRadius: '0px' }} />

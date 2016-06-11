@@ -142,6 +142,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.7.4",
+    "body-parser": "^1.15.1",
     "chalk": "^1.1.3",
     "compression": "^1.6.1",
     "express": "^4.13.4",
@@ -149,6 +150,7 @@
     "history": "^2.1.0",
     "immutable": "^3.8.1",
     "material-ui": "^0.15.0",
+    "mongoose": "^4.4.20",
     "purecss": "^0.6.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",

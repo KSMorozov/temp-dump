@@ -1,4 +1,16 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+:global html,
+:global button,
+:global input,
+:global select,
+:global textarea,
+:global body,
+:global .pure-g [class *= "pure-u"] {
+    /* Set your content font stack here: */
+    font-size: 100%;
+    font-family: 'Helvetica Neue', Helvetica, Arial;
+    font-weight: 300;
+    color: #424242;
+}
 
 :global html,
 :global button,
@@ -9,13 +21,9 @@
 :global .pure-g [class *= "pure-u"] {
     /* Set your content font stack here: */
     font-size: 100%;
-    font-family: 'Roboto';
+    font-family: 'Roboto', Helvetica, Arial;
     font-weight: 300;
     color: #424242;
-}
-
-:global body {
-  font-family: sans-serif;
 }
 
 /* Sticky Footer Full height flexbox solution. */

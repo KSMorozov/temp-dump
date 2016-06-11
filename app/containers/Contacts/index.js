@@ -19,10 +19,18 @@ class Contacts extends React.Component {
           </div>
           <div className="pure-u-1-1  pure-u-xl-12-24 box">
             <Card>
-              <CardTitle title="The Greatness Agenda" subtitle="The Greatness Agenda" />
+              <CardTitle title="Контактные данные" subtitle="Телефоны, график работы и местонахождение офиса:" />
               <CardText>
-                The Greatness Agenda is a strategic framework built on five pillars: amazing product, incredible savings, easy experience, personalized connections and winning teams. Ultimately, our goal is to be the most engaging retailer in America. We will achieve that goal by focusing on our customers and creating product assortments that excite them. By building genuine, lasting relationships with them. By designing easy, seamless shopping experiences no matter how our customer shops. By helping customers get more from every dollar they spend at Kohl’s. And by building teams of engaged and talented Associates. Kohl’s is on the path to greatness.
+                <p>Aдресс: 107113 г. Москва, Сокольнический вал, д. 1Б, (Ледовый дворец «Сокольники»)</p>
+                <p>Tел/факс: +7 (499) 268-00-78</p>
+                <p>E-mail: <a href="mailto:info@ligazvezd.com">info@ligazvezd.com</a></p>
+                <p>Время работы офиса: С понедельника по пятницу с 10.00 до 17.00</p>
               </CardText>
+              <CardTitle title="Проезд на общественном транспорте" subtitle="Как к нам добраться:" />
+              <CardText>
+                <p> Проезд до станции метро Сокольники, один выход в город, идём по направлению к центральному входу парка «Сокольники», переходим дорогу со светофором и поворачиваем налево, идём до Ледового Дворца Спорта «Сокольники», который располагается по правой стороне. Далее идём к тренировочному катку, вход в центральной части здания. Общее время в пути 10-15 минут.</p>
+              </CardText>
+              <CardTitle title="Убебительная просьба: звонить перед приездом." />
             </Card>
           </div>
         </div>

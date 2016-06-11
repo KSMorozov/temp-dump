@@ -55,6 +55,11 @@ class App extends React.Component {
   }
 }
 
+const mapStateToProps = createSelector(
+  selectShowDrawer(),
+  (showDrawer) => ({ showDrawer })
+);
+
 function mapDispatchToProps(dispatch) {
   return {
     onToggleDrawer: () => dispatch(toggleDrawer()),
@@ -63,7 +68,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(createSelector(
-  selectShowDrawer(),
-  (showDrawer) => ({ showDrawer })
-), mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

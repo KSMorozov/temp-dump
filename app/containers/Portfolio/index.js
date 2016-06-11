@@ -1,48 +1,67 @@
+/* eslint no-underscore-dangle: 0 react/jsx-no-bind: 0 */
 import React from 'react';
+import { connect } from 'react-redux';
+import { createSelector } from 'reselect';
+
+import LigaZvezd from 'components/Brand/logo.svg';
+
+import {
+  selectCategories,
+  selectProducts,
+  selectError,
+  selectLoading,
+} from './selectors';
+
+import {
+  loadData,
+} from './actions';
 
 import PortfolioItem from 'components/PortfolioItem';
-import Spartak from './spartak.png';
-import Cska from './cska.png';
-import Zenit from './zenit.png';
-import Dinamo from './dinamo.png';
-import Tee from './cskatee.jpg';
-import Truhani from './truhani.png';
-import Hat from './cskahat.jpg';
 
 class Portfolio extends React.Component {
+  componentWillMount() {
+    this.props.onComponentWillMount();
+  }
+
+  componentWillReceiveProps(next) {
+    if (next.location.query.category !== this.props.location.query.category) {
+      this.props.onComponentWillMount();
+    }
+  }
+
   render() {
-    const items = this.props.location.query.brand
-      ? [
-        { id: 0, name: 'Футболка', type: 'ЦСКА', image: Tee },
-        { id: 1, name: 'Кепка', type: 'ЦСКА', image: Hat },
-        { id: 2, name: 'Труханы', type: 'ЦСКА', image: Truhani },
-        { id: 3, name: 'Футболка', type: 'ЦСКА', image: Tee },
-        { id: 4, name: 'Кепка', type: 'ЦСКА', image: Hat },
-        { id: 5, name: 'Труханы', type: 'ЦСКА', image: Truhani },
-        { id: 6, name: 'Футболка', type: 'ЦСКА', image: Tee },
-        { id: 7, name: 'Кепка', type: 'ЦСКА', image: Hat },
-      ]
-      : [
-        { id: 0, name: 'Цска', type: 'Клуб', image: Cska },
-        { id: 1, name: 'Зенит', type: 'Клуб', image: Zenit },
-        { id: 2, name: 'Динамо', type: 'Клуб', image: Dinamo },
-        { id: 3, name: 'Спартак', type: 'Клуб', image: Spartak },
-      ];
-    const filtered = this.props.location.query.brand;
+    const { categories, products, changeRoute } = this.props;
     return (
       <div className="pure-g">
         <div className="pure-u-1-24 pure-u-sm-2-24 pure-u-lg-3-24"></div>
         <div className="pure-u-22-24 pure-u-sm-20-24 pure-u-lg-18-24">
           <div className="box"><div><h1>Портфолио</h1></div></div>
-          {items.map((item) =>
+          {categories && categories.map(category =>
             <PortfolioItem
-              handleItemClick={this.props.changeRoute.bind(this, !filtered ? '/portfolio' : `/portfolio/${item.id}`, !filtered ? { brand: item.name } : undefined, !filtered ? undefined : item)}
-              image={item.image}
-              name={item.name}
-              type={item.type}
-              key={item.id}
+              handleItemClick={changeRoute.bind(this, '/portfolio', { category: category.name }, undefined)}
+              image={category.image}
+              name={category.name}
+              type={category.type}
+              key={category._id}
             />
           )}
+          {products && products.map(product =>
+            <PortfolioItem
+              handleItemClick={changeRoute.bind(this, `/portfolio/:${product._id}`, undefined, product)}
+              image={product.image}
+              name={product.name}
+              type={product.type}
+              key={product._id}
+            />
+          )}
+          {categories &&
+            <PortfolioItem
+              handleItemClick={changeRoute.bind(this, '/portfolio', { category: 'Разные' }, undefined)}
+              image={LigaZvezd}
+              name={'Разные'}
+              type={'Товары'}
+            />
+          }
         </div>
       </div>
     );
@@ -50,8 +69,37 @@ class Portfolio extends React.Component {
 }
 
 Portfolio.propTypes = {
-  changeRoute: React.PropTypes.func,
+  changeRoute: React.PropTypes.func.isRequired,
+  onComponentWillMount: React.PropTypes.func,
   location: React.PropTypes.object.isRequired,
+  categories: React.PropTypes.oneOfType([
+    React.PropTypes.array,
+    React.PropTypes.bool,
+  ]),
+  products: React.PropTypes.oneOfType([
+    React.PropTypes.array,
+    React.PropTypes.bool,
+  ]),
+  error: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.bool,
+  ]),
+  loading: React.PropTypes.bool,
 };
 
-export default Portfolio;
+const mapStateToProps = createSelector(
+  selectCategories(),
+  selectProducts(),
+  selectLoading(),
+  selectError(),
+  (categories, products, loading, error) => ({ categories, products, loading, error })
+);
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onComponentWillMount: () => dispatch(loadData()),
+    dispatch,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Portfolio);
