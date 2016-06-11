@@ -9,9 +9,9 @@
   "author": "Max Stoiber",
   "license": "MIT",
   "scripts": {
-    "start": "npm run start:tunnel",
+    "start": "npm run setup && npm run build:prod && npm run start:prod",
     "start:production": "npm run build:prod && npm run start:prod",
-    "prebuild": "npm run test && npm run build:clean",
+    "prebuild": "npm run build:clean",
     "build:clean": "rimraf ./build/*",
     "build": "NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js",
     "build:prod": "npm run build:clean && npm run build",
